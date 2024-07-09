@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation Js Assignment1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form id="myForm">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <p id="email-error" class="error"></p>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <p id="password-error" class="error"></p>
+      </div>
+      <div class="form-group">
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Role:</label>
+        <label
+          ><input type="radio" name="role" value="admin" required />
+          Admin</label
+        >
+        <label
+          ><input type="radio" name="role" value="user" required /> User</label
+        >
+      </div>
+      <div class="form-group">
+        <label>Permissions:</label>
+        <label
+          ><input type="checkbox" name="permissions" value="perm1" />
+          Perm1</label
+        >
+        <label
+          ><input type="checkbox" name="permissions" value="perm2" />
+          Perm2</label
+        >
+        <label
+          ><input type="checkbox" name="permissions" value="perm3" />
+          Perm3</label
+        >
+        <label
+          ><input type="checkbox" name="permissions" value="perm4" />
+          Perm4</label
+        >
+      </div>
+      <button type="submit">Submit</button>
+      <p id="error-message" class="error"></p>
+    </form>
+    <div id="confirmation" class="hidden">
+      <p>Email: <span id="confirm-email"></span></p>
+      <p>Password: <span id="confirm-password"></span></p>
+      <p>Sex: <span id="confirm-sex"></span></p>
+      <p>Role: <span id="confirm-role"></span></p>
+      <p>Permissions: <span id="confirm-permissions"></span></p>
+      <button id="confirm-button">Confirm</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

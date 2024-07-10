@@ -1,3 +1,11 @@
+const displayError = (elementId, message) => {
+  const element = document.getElementById(elementId);
+  element.textContent = message;
+  setTimeout(() => {
+    element.textContent = "";
+  }, 3000);
+};
+
 document.getElementById("myForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
@@ -11,36 +19,25 @@ document.getElementById("myForm").addEventListener("submit", function (event) {
   const errorMessage = document.getElementById("error-message");
 
   if (!email || !password || !sex || !role || permissions.length < 2) {
-    errorMessage.textContent =
-      "All fields must be filled and at least 2 permissions must be selected.";
-
-    setTimeout(() => {
-      errorMessage.textContent = "";
-    }, 3000);
-
+    displayError(
+      "error-message",
+      "All fields must be filled and at least 2 permissions must be selected."
+    );
     return;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    const errorElement = document.getElementById(`email-error`);
-    errorElement.textContent = "Invalid email format.";
-
-    setTimeout(() => {
-      errorElement.textContent = "";
-    }, 3000);
+    displayError("email-error", "Invalid email format");
     return;
   }
 
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/;
   if (!passwordRegex.test(password)) {
-    const errorElement = document.getElementById(`password-error`);
-    errorElement.textContent =
-      "Password must be at least 6 characters & include uppercase, lowercase, and digits.";
-
-    setTimeout(() => {
-      errorElement.textContent = "";
-    }, 3000);
+    displayError(
+      "password-error",
+      "Password must be at least 6 characters & include uppercase, lowercase, and digits."
+    );
     return;
   }
 
